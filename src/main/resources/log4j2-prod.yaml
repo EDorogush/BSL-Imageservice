@@ -1,0 +1,34 @@
+Configuration:
+  status: debug
+  name: YAMLConfig
+  appenders:
+    JDBC:
+      name: databaseAppender
+      tableName: application_log
+      PoolingDriver:
+        connectionString: ${env:logdb-endpoint}
+        userName: ${env:logdb-username}
+        password: ${env:logdb-password}
+        driverClassName: org.postgresql.Driver
+        poolName: jdbc:apache:commons:dbcp:example
+      Column:
+        - name: EVENT_ID
+          literal: nextval('serial')
+        - name: EVENT_DATE
+          isEventTimestamp: true
+        - name: LEVEL
+          pattern: "%level"
+          isUnicode: false
+        - name: LOGGER
+          pattern: "%logger"
+          isUnicode: false
+        - name: MESSAGE
+          pattern: "%message"
+          isUnicode: false
+        - name: THROWABLE
+          pattern: "%ex{full}"
+          isUnicode: false
+  Loggers:
+    Root:
+      AppenderRef:
+        ref: databaseAppender

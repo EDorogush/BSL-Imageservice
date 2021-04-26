@@ -1,0 +1,10 @@
+/.idea
+*.iml
+/out
+/target
+/.java-version
+.terraform
+*.tfstate
+*.tfvars
+override.tf
+/src/test/resources/resizedImages

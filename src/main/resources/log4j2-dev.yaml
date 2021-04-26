@@ -1,0 +1,13 @@
+Configuration:
+  status: debug
+  name: YAMLConfig
+  appenders:
+    Console:
+      name: STDOUT
+      target: SYSTEM_OUT
+      PatternLayout:
+        Pattern: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %logger - %msg%n"
+  Loggers:
+    Root:
+      AppenderRef:
+        ref: STDOUT

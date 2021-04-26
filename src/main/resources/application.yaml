@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: debijenkorf-task
+  profiles:
+    active: prod
+
+fileStorage:
+  retry:
+    max-attempts: 2
+    await-before-retry-ms: 200
+  amazonS3:
+    bucket: eu-west-2-images-bucket
+
+source-root-url: https://i.imgflip.com
+
+logging:
+  level:
+    ROOT: warn
+    com.edorogush.debijenkorftask: info
+
